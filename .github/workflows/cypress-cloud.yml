@@ -6,24 +6,24 @@ on:
       spec:
         description: Run by cypress command line
         default: cypress/e2e/*
-        
-  jobs:
-    cypress-e2e-electron:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Get code
-          uses: actions/checkout@v3.3.0
+   
+jobs:
+  cypress-e2e-electron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3.3.0
           
-        - name: cypress run
-          uses: cypress-io/github-action@v5.0.9
-          with:
-            install-command: yarn install
-            browser: electron
-            record: true
-            group: UI Electron
-            spec: ${{ github.event.inputs.spec }}
-          env:
-            CYPRESS_RECORD_KEY: 35de5135-fc3b-4936-94b1-2519a3b4a226
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: cypress run
+        uses: cypress-io/github-action@v5.0.9
+        with:
+          install-command: yarn install
+          browser: electron
+          record: true
+          group: UI Electron
+          spec: ${{ github.event.inputs.spec }}
+        env:
+          CYPRESS_RECORD_KEY: 35de5135-fc3b-4936-94b1-2519a3b4a226
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
           
